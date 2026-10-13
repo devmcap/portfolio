@@ -1,0 +1,15 @@
+/* Design tokens: the single place to change the site's look.
+   Placeholder values until we define the art direction. */
+:root {
+  --color-bg: #0e0e0c;
+  --color-fg: #ecebe4;
+  --color-muted: #8a8a80;
+  --color-accent: #ff5b1f;
+
+  --font-display: Georgia, 'Times New Roman', serif;
+  --font-body: system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --space-s: 1rem;
+  --space-m: 2rem;
+  --space-l: 6rem;
+}

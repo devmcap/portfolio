@@ -1,0 +1,33 @@
+.projects {
+  min-height: 100vh;
+  padding: var(--space-l) var(--space-m);
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  font-weight: 400;
+  margin-bottom: var(--space-l);
+}
+
+.card {
+  border-top: 1px solid var(--color-muted);
+  padding: var(--space-m) 0 var(--space-l);
+}
+
+.card h3 {
+  font-size: 2rem;
+  font-weight: 500;
+  margin: var(--space-s) 0;
+}
+
+.card p {
+  color: var(--color-muted);
+}
+
+.year {
+  color: var(--color-accent);
+  font-size: 0.85rem;
+}

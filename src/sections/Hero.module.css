@@ -1,0 +1,23 @@
+.hero {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 14vw, 12rem);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+}
+
+.hint {
+  position: absolute;
+  bottom: var(--space-m);
+  color: var(--color-muted);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+}
