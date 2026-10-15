@@ -21,38 +21,8 @@
   margin-bottom: var(--space-l);
 }
 
-.specs {
-  border-top: 1px solid var(--color-line);
-}
-
-.row {
-  display: grid;
-  grid-template-columns: 10rem 1fr;
-  gap: var(--space-s);
-  padding: var(--space-s) 0;
-  border-bottom: 1px solid var(--color-line);
-}
-
-.row dt {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--color-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  align-self: center;
-}
-
-.row dd {
-  margin: 0;
-}
-
 @media (max-width: 600px) {
   .about {
     padding: var(--space-l) var(--space-s);
-  }
-
-  .row {
-    grid-template-columns: 1fr;
-    gap: 0.25rem;
   }
 }

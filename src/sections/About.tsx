@@ -1,7 +1,10 @@
 import { useRef } from 'react'
 import { useReveal } from '../animations/useReveal'
+import { SpecList } from '../components/SpecList'
 import { bio, specs } from '../data/about'
 import styles from './About.module.css'
+
+const rows = specs.map((spec) => ({ label: spec.label, content: spec.values.join(' · ') }))
 
 export function About() {
   const root = useRef<HTMLElement>(null)
@@ -15,14 +18,9 @@ export function About() {
       <p data-reveal className={styles.bio}>
         {bio}
       </p>
-      <dl data-reveal className={styles.specs}>
-        {specs.map((spec) => (
-          <div key={spec.label} className={styles.row}>
-            <dt>{spec.label}</dt>
-            <dd>{spec.values.join(' · ')}</dd>
-          </div>
-        ))}
-      </dl>
+      <div data-reveal>
+        <SpecList rows={rows} />
+      </div>
     </section>
   )
 }
