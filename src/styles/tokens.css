@@ -6,6 +6,7 @@
   --color-text: #e8e8e8;
   --color-muted: #888888;
   --color-accent: #c8fa5f;
+  --color-line: color-mix(in srgb, var(--color-text) 15%, transparent);
 
   /* Typography */
   --font-body: 'Inter', system-ui, sans-serif;

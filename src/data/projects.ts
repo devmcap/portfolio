@@ -3,20 +3,18 @@ export interface Project {
   title: string
   description: string
   year: number
+  stack: readonly string[]
+  repo: string
 }
 
-// Placeholder content: replace with your real projects.
-export const projects: Project[] = [
+export const projects: readonly Project[] = [
   {
-    id: 'project-one',
-    title: 'Proyecto uno',
-    description: 'Una frase sobre qué problema resuelve.',
+    id: 'devmcap',
+    title: 'devmcap',
+    description:
+      'This portfolio. A scroll-driven site built from scratch and developed alongside AI agents.',
     year: 2026,
-  },
-  {
-    id: 'project-two',
-    title: 'Proyecto dos',
-    description: 'Una frase sobre qué problema resuelve.',
-    year: 2025,
+    stack: ['React', 'TypeScript', 'GSAP', 'Lenis', 'Vite'],
+    repo: 'https://github.com/manmolcptn/devmcap',
   },
 ]

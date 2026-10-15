@@ -10,4 +10,8 @@ describe('projects data', () => {
   it('has no empty titles', () => {
     expect(projects.every((p) => p.title.trim().length > 0)).toBe(true)
   })
+
+  it('links every repo over https', () => {
+    expect(projects.every((p) => p.repo.startsWith('https://'))).toBe(true)
+  })
 })

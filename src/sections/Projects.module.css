@@ -5,16 +5,19 @@
   margin: 0 auto;
 }
 
-.heading {
-  font-family: var(--font-body);
-  font-size: clamp(2.5rem, 8vw, 6rem);
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
   font-weight: 400;
-  margin-bottom: var(--space-l);
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: var(--space-m);
 }
 
 .card {
-  border-top: 1px solid var(--color-muted);
-  padding: var(--space-m) 0 var(--space-l);
+  border-top: 1px solid var(--color-line);
+  padding: var(--space-m) 0;
 }
 
 .card h3 {
@@ -25,9 +28,42 @@
 
 .card p {
   color: var(--color-muted);
+  max-width: 50ch;
 }
 
 .year {
-  color: var(--color-accent);
+  font-family: var(--font-mono);
   font-size: 0.85rem;
+  color: var(--color-accent);
+}
+
+.stack {
+  margin-top: var(--space-s);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+.link {
+  display: inline-block;
+  margin-top: var(--space-m);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.link:hover,
+.link:focus-visible {
+  color: var(--color-accent);
+}
+
+.next {
+  margin-top: var(--space-m);
+}
+
+@media (max-width: 600px) {
+  .projects {
+    padding: var(--space-l) var(--space-s);
+  }
 }
