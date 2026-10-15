@@ -1,14 +1,17 @@
-/* Design tokens: the single place to change the site's look.
-   Placeholder values until we define the art direction. */
+/* Design tokens — single source of truth for the site's look. */
 :root {
-  --color-bg: #0e0e0c;
-  --color-fg: #ecebe4;
-  --color-muted: #8a8a80;
-  --color-accent: #ff5b1f;
+  /* Colors */
+  --color-bg: #080808;
+  --color-surface: #111111;
+  --color-text: #e8e8e8;
+  --color-muted: #888888;
+  --color-accent: #c8fa5f;
 
-  --font-display: Georgia, 'Times New Roman', serif;
-  --font-body: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  /* Typography */
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 
+  /* Spacing */
   --space-s: 1rem;
   --space-m: 2rem;
   --space-l: 6rem;

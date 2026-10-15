@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 @import './styles/tokens.css';
 @import 'lenis/dist/lenis.css';
 
@@ -10,7 +11,7 @@
 
 body {
   background: var(--color-bg);
-  color: var(--color-fg);
+  color: var(--color-text);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
 }
