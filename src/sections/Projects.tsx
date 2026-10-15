@@ -8,7 +8,7 @@ export function Projects() {
   useReveal(root)
 
   return (
-    <section ref={root} className={styles.projects}>
+    <section ref={root} id="projects" className={styles.projects}>
       <h2 data-reveal className={styles.heading}>
         Proyectos
       </h2>

@@ -1,3 +1,4 @@
+import { Nav } from './components/Nav'
 import { SmoothScroll } from './components/SmoothScroll'
 import { Hero } from './sections/Hero'
 import { Projects } from './sections/Projects'
@@ -6,6 +7,7 @@ import { Projects } from './sections/Projects'
 export default function App() {
   return (
     <SmoothScroll>
+      <Nav />
       <main>
         <Hero />
         <Projects />
