@@ -1,0 +1,30 @@
+.contact {
+  padding: var(--space-l) var(--space-m);
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: var(--space-m);
+}
+
+.headline {
+  font-size: clamp(1.75rem, 5vw, 3.5rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  max-width: 20ch;
+  margin-bottom: var(--space-l);
+}
+
+@media (max-width: 600px) {
+  .contact {
+    padding: var(--space-l) var(--space-s);
+  }
+}

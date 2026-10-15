@@ -1,0 +1,14 @@
+.footer {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: var(--space-m);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-muted);
+}
+
+@media (max-width: 600px) {
+  .footer {
+    padding: var(--space-m) var(--space-s);
+  }
+}
