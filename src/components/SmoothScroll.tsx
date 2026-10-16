@@ -5,6 +5,7 @@ import { gsap, ScrollTrigger } from '../animations/gsap'
 /**
  * Wraps the page in Lenis smooth scrolling and drives it from GSAP's ticker,
  * so ScrollTrigger and Lenis share one animation loop and never drift apart.
+ * Users who prefer reduced motion get native scrolling instead.
  */
 export function SmoothScroll({ children }: { children: ReactNode }) {
   const lenisRef = useRef<LenisRef>(null)
@@ -21,6 +22,10 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
 
     return () => gsap.ticker.remove(update)
   }, [])
+
+  // Checked after the hooks: React needs them called on every render.
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  if (reduceMotion) return <>{children}</>
 
   return (
     <ReactLenis root options={{ autoRaf: false, anchors: true }} ref={lenisRef}>
