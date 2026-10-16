@@ -33,6 +33,9 @@ built twice.
 - Light palette: warm paper `#f4f2ec`, text `#141414`, accent `#3f6b0a` (lime is
   unreadable on light backgrounds).
 - Sun/moon SVG button in the Nav.
+- The switch animates as a rising liquid wave (View Transitions API + a wavy
+  `clip-path`, in `src/animations/themeWave.ts`). Instant under reduced motion or
+  in browsers without View Transitions.
 - An inline script in `index.html` applies the saved theme before the first paint (no flash).
 - No React context: the theme lives in CSS variables (`src/styles/tokens.css`).
 

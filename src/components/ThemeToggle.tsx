@@ -1,4 +1,6 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+import { flushSync } from 'react-dom'
+import { runThemeWave } from '../animations/themeWave'
 import { parseTheme, THEME_STORAGE_KEY, type Theme } from './theme'
 import styles from './ThemeToggle.module.css'
 
@@ -9,15 +11,25 @@ export function ThemeToggle() {
     parseTheme(document.documentElement.dataset.theme),
   )
   const next: Theme = theme === 'dark' ? 'light' : 'dark'
+  const switching = useRef(false)
 
   function toggle() {
-    document.documentElement.dataset.theme = next
+    if (switching.current) return // ignore clicks while the wave is rising
+    switching.current = true
+
+    runThemeWave(() => {
+      document.documentElement.dataset.theme = next
+      // Re-render now, so the new snapshot already shows the new icon.
+      flushSync(() => setTheme(next))
+    }).finally(() => {
+      switching.current = false
+    })
+
     try {
       localStorage.setItem(THEME_STORAGE_KEY, next)
     } catch {
       // Storage blocked (e.g. private mode): the theme still applies for this visit.
     }
-    setTheme(next)
   }
 
   return (
