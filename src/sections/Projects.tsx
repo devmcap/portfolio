@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import { useReveal } from '../animations/useReveal'
 import { NextBuild } from '../components/NextBuild'
 import { projects } from '../data/projects'
+import typography from '../styles/typography.module.css'
 import styles from './Projects.module.css'
 
 export function Projects() {
@@ -10,7 +11,7 @@ export function Projects() {
 
   return (
     <section ref={root} id="projects" className={styles.projects}>
-      <h2 data-reveal className={styles.label}>
+      <h2 data-reveal className={`${typography.label} ${styles.label}`}>
         Projects
       </h2>
       {projects.map((project) => (

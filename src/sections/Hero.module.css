@@ -14,7 +14,6 @@
 }
 
 .role {
-  composes: label from '../styles/typography.module.css';
   margin-bottom: var(--space-s);
 }
 

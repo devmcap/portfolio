@@ -6,7 +6,6 @@
 }
 
 .label {
-  composes: label from '../styles/typography.module.css';
   margin-bottom: var(--space-m);
 }
 

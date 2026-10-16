@@ -1,4 +1,4 @@
-/* Shared text styles. Reuse them with `composes: <class> from '../styles/typography.module.css'`. */
+/* Shared text styles. Apply them next to a section's own class: className={`${typography.label} ${styles.x}`}. */
 
 /* Mono uppercase label: section titles and the Hero role. */
 .label {

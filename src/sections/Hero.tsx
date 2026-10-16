@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { gsap, useGSAP } from '../animations/gsap'
 import { profile } from '../data/profile'
+import typography from '../styles/typography.module.css'
 import styles from './Hero.module.css'
 
 /**
@@ -35,7 +36,7 @@ export function Hero() {
   return (
     <section ref={root} id="top" className={styles.hero}>
       <div data-hero-content className={styles.content}>
-        <p className={styles.role}>{profile.role}</p>
+        <p className={`${typography.label} ${styles.role}`}>{profile.role}</p>
         <h1 className={styles.title}>{profile.name}</h1>
         <p className={styles.tagline}>
           {profile.tagline.map((line) => (
