@@ -18,4 +18,7 @@ export const ui = {
   nextBuild: { en: 'Next project, in progress', es: 'Próximo proyecto, en progreso' },
   nextBuildProgress: { en: 'Next project', es: 'Próximo proyecto' },
   inProgress: { en: 'In progress', es: 'En progreso' },
+  // Keyed by the language you switch TO, and written in it. Includes the visible
+  // "EN"/"ES" so voice-control users can say what they see.
+  switchLanguage: { en: 'View in English (EN)', es: 'Ver en español (ES)' },
 } satisfies Record<string, Localized<string>>

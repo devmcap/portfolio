@@ -8,9 +8,9 @@ What's done, what's next, and how each piece gets built.
 |---|---------|--------|
 | — | Sections: Hero, About, Projects, Contact + Footer | ✅ Done |
 | — | Lenis off under `prefers-reduced-motion` | ✅ Done (`f9a7ec7`) |
-| 1 | Light/dark theme | ✅ Done (`7fe5556`), pending visual review |
-| 2 | ES/EN language toggle | ⏭️ Next |
-| 3 | Fog intro over the Hero | Planned |
+| 1 | Light/dark theme | ✅ Done (`7fe5556`, wave `1c2d26a`) |
+| 2 | ES/EN language toggle | ✅ Done, pending visual review |
+| 3 | Fog intro over the Hero | ⏭️ Next |
 | 4 | Light 3D element (React Three Fiber) | Planned |
 | 5 | Deploy | Planned |
 
@@ -39,18 +39,17 @@ built twice.
 - An inline script in `index.html` applies the saved theme before the first paint (no flash).
 - No React context: the theme lives in CSS variables (`src/styles/tokens.css`).
 
-## 2. ES/EN language toggle
+## 2. ES/EN language toggle ✅
 
-Open questions:
-- Default language: browser language (`navigator.language`) or always English?
-- Translate everything, or keep terminal-style text (`$ build next-project`) in English?
-- Toggle look: `ES / EN` in mono, with the active one highlighted?
-- Separate URLs per language (`/es`) for SEO, or the same URL?
-
-Technical direction: no i18n library. Each data file becomes `{ en, es }`; a
-`LanguageProvider` (React context) + `useLanguage` hook; persisted in `localStorage`;
-updates `<html lang>`.
-Planned commits: (a) restructure `src/data/` with no visible change, (b) the toggle.
+- Default from the browser (`es*` → Spanish, anything else → English); an explicit
+  choice is saved in `localStorage` and wins from then on.
+- Same URL for both languages.
+- Translated: content and section titles. Kept in English on purpose: nav links,
+  terminal-style text (`$ build next-project`, `scroll ↓`) and the role "Developer".
+- The toggle shows only the language you can switch to (`ES` / `EN`).
+- Content is `Localized<T>` (`{ en, es }`, `src/i18n/lang.ts`); interface text lives in
+  `src/data/ui.ts`. A test walks all content to catch missing or empty translations.
+- `LanguageProvider` + `useLanguage()` (React context) also keep `<html lang>` in sync.
 
 ## 3. Fog intro over the Hero
 
@@ -77,6 +76,6 @@ Static site. Hosting to be decided.
 
 ## Leftovers
 
-- Mobile Nav: handle + 3 links + 2 toggles at 375px — design it together with ES/EN.
+- Check the Nav at 375px with both toggles (estimated ~360px, tight).
 - Maybe reword "developed alongside AI agents" (the site shouldn't look AI-made).
 - Add a `.gitattributes` to silence the LF/CRLF warnings.

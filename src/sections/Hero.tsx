@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { gsap, useGSAP } from '../animations/gsap'
 import { profile } from '../data/profile'
+import { useLanguage } from '../i18n/useLanguage'
 import typography from '../styles/typography.module.css'
 import styles from './Hero.module.css'
 
@@ -9,6 +10,7 @@ import styles from './Hero.module.css'
  * and the content shrinks and fades in sync with the scrollbar ("scrub").
  */
 export function Hero() {
+  const { lang } = useLanguage()
   const root = useRef<HTMLElement>(null)
 
   useGSAP(
@@ -39,7 +41,7 @@ export function Hero() {
         <p className={`${typography.label} ${styles.role}`}>{profile.role}</p>
         <h1 className={styles.title}>{profile.name}</h1>
         <p className={styles.tagline}>
-          {profile.tagline.en.map((line) => (
+          {profile.tagline[lang].map((line) => (
             <span key={line}>{line}</span>
           ))}
         </p>

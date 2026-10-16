@@ -1,0 +1,15 @@
+.toggle {
+  padding: 0.25rem;
+  font: inherit;
+  letter-spacing: 0.1em;
+  color: var(--color-text);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.toggle:hover,
+.toggle:focus-visible {
+  color: var(--color-accent);
+}

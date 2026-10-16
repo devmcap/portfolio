@@ -1,16 +1,20 @@
 import { navLinks } from '../data/navigation'
 import { profile } from '../data/profile'
 import { ui } from '../data/ui'
+import { useLanguage } from '../i18n/useLanguage'
+import { LanguageToggle } from './LanguageToggle'
 import styles from './Nav.module.css'
 import { ThemeToggle } from './ThemeToggle'
 
 export function Nav() {
+  const { lang } = useLanguage()
+
   return (
     <header className={styles.nav}>
       <a href="#top" className={styles.brand}>
         {profile.handle}
       </a>
-      <nav aria-label={ui.mainNav.en}>
+      <nav aria-label={ui.mainNav[lang]}>
         <ul className={styles.links}>
           {navLinks.map((link, i) => (
             <li key={link.id}>
@@ -22,7 +26,10 @@ export function Nav() {
           ))}
         </ul>
       </nav>
-      <ThemeToggle />
+      <div className={styles.controls}>
+        <LanguageToggle />
+        <ThemeToggle />
+      </div>
     </header>
   )
 }

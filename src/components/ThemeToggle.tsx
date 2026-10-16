@@ -2,11 +2,13 @@ import { useRef, useState } from 'react'
 import { flushSync } from 'react-dom'
 import { runThemeWave } from '../animations/themeWave'
 import { ui } from '../data/ui'
+import { useLanguage } from '../i18n/useLanguage'
 import { parseTheme, THEME_STORAGE_KEY, type Theme } from './theme'
 import styles from './ThemeToggle.module.css'
 
 /** Sun/moon button that flips `data-theme` on <html>; tokens.css does the rest. */
 export function ThemeToggle() {
+  const { lang } = useLanguage()
   // The inline script in index.html already applied the saved theme before React ran.
   const [theme, setTheme] = useState<Theme>(() =>
     parseTheme(document.documentElement.dataset.theme),
@@ -38,7 +40,7 @@ export function ThemeToggle() {
       type="button"
       className={styles.toggle}
       onClick={toggle}
-      aria-label={next === 'light' ? ui.switchToLight.en : ui.switchToDark.en}
+      aria-label={next === 'light' ? ui.switchToLight[lang] : ui.switchToDark[lang]}
     >
       {theme === 'dark' ? <MoonIcon /> : <SunIcon />}
     </button>

@@ -43,6 +43,14 @@
   color: var(--color-muted);
 }
 
+/* Language + theme toggles, kept close together and set apart from the links. */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: var(--space-s);
+}
+
 @media (max-width: 600px) {
   .nav {
     gap: var(--space-s);
@@ -55,5 +63,10 @@
 
   .index {
     display: none;
+  }
+
+  /* No extra space on phones: the nav is already ~360px wide at 375px. */
+  .controls {
+    margin-left: 0;
   }
 }
