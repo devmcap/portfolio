@@ -30,8 +30,8 @@ built twice.
 ## 1. Light/dark theme ✅
 
 - Dark by default (not the OS setting); the choice is saved in `localStorage`.
-- Light palette: warm paper `#f4f2ec`, text `#141414`, accent `#3f6b0a` (lime is
-  unreadable on light backgrounds).
+- Light palette: warm paper `#f4f2ec`, text `#141414`, terracotta accent `#b0410f`
+  (lime is unreadable on light backgrounds).
 - Sun/moon SVG button in the Nav.
 - The switch animates as a rising liquid wave (View Transitions API + a wavy
   `clip-path`, in `src/animations/themeWave.ts`). Instant under reduced motion or

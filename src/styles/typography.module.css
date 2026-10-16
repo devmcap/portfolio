@@ -3,8 +3,8 @@
 /* Mono uppercase label: section titles and the Hero role. */
 .label {
   font-family: var(--font-mono);
-  font-size: 0.85rem;
-  font-weight: 400;
+  font-size: 1rem;
+  font-weight: 600;
   color: var(--color-accent);
   text-transform: uppercase;
   letter-spacing: 0.2em;
