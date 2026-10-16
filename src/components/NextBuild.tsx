@@ -1,9 +1,10 @@
+import { ui } from '../data/ui'
 import styles from './NextBuild.module.css'
 
-/** Terminal-style window marking the slot for the next project. */
+/** Terminal-style window marking the slot for the next project. The visible text stays in English. */
 export function NextBuild() {
   return (
-    <article className={styles.window} aria-label="Next project, in progress">
+    <article className={styles.window} aria-label={ui.nextBuild.en}>
       <div className={styles.titlebar} aria-hidden="true">
         <span className={styles.dots}>
           <span />
@@ -23,8 +24,8 @@ export function NextBuild() {
           <div
             className={styles.track}
             role="progressbar"
-            aria-label="Next project"
-            aria-valuetext="In progress"
+            aria-label={ui.nextBuildProgress.en}
+            aria-valuetext={ui.inProgress.en}
           >
             <div className={styles.fill} />
           </div>

@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import { flushSync } from 'react-dom'
 import { runThemeWave } from '../animations/themeWave'
+import { ui } from '../data/ui'
 import { parseTheme, THEME_STORAGE_KEY, type Theme } from './theme'
 import styles from './ThemeToggle.module.css'
 
@@ -37,7 +38,7 @@ export function ThemeToggle() {
       type="button"
       className={styles.toggle}
       onClick={toggle}
-      aria-label={`Switch to ${next} theme`}
+      aria-label={next === 'light' ? ui.switchToLight.en : ui.switchToDark.en}
     >
       {theme === 'dark' ? <MoonIcon /> : <SunIcon />}
     </button>

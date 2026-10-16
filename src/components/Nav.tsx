@@ -1,5 +1,6 @@
 import { navLinks } from '../data/navigation'
 import { profile } from '../data/profile'
+import { ui } from '../data/ui'
 import styles from './Nav.module.css'
 import { ThemeToggle } from './ThemeToggle'
 
@@ -9,7 +10,7 @@ export function Nav() {
       <a href="#top" className={styles.brand}>
         {profile.handle}
       </a>
-      <nav aria-label="Main">
+      <nav aria-label={ui.mainNav.en}>
         <ul className={styles.links}>
           {navLinks.map((link, i) => (
             <li key={link.id}>

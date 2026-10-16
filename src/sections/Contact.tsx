@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import { useReveal } from '../animations/useReveal'
 import { SpecList } from '../components/SpecList'
 import { contactHeadline, contactLinks, displayUrl } from '../data/contact'
+import { ui } from '../data/ui'
 import typography from '../styles/typography.module.css'
 import styles from './Contact.module.css'
 
@@ -21,10 +22,10 @@ export function Contact() {
   return (
     <section ref={root} id="contact" className={styles.contact}>
       <h2 data-reveal className={`${typography.label} ${styles.label}`}>
-        Contact
+        {ui.contactTitle.en}
       </h2>
       <p data-reveal className={styles.headline}>
-        {contactHeadline}
+        {contactHeadline.en}
       </p>
       <div data-reveal>
         <SpecList rows={rows} />

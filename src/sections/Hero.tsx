@@ -39,7 +39,7 @@ export function Hero() {
         <p className={`${typography.label} ${styles.role}`}>{profile.role}</p>
         <h1 className={styles.title}>{profile.name}</h1>
         <p className={styles.tagline}>
-          {profile.tagline.map((line) => (
+          {profile.tagline.en.map((line) => (
             <span key={line}>{line}</span>
           ))}
         </p>
