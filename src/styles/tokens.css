@@ -1,6 +1,7 @@
 /* Design tokens — single source of truth for the site's look. */
 :root {
-  /* Colors */
+  /* Colors (dark is the default theme) */
+  color-scheme: dark;
   --color-bg: #080808;
   --color-surface: #111111;
   --color-text: #e8e8e8;
@@ -16,4 +17,15 @@
   --space-s: 1rem;
   --space-m: 2rem;
   --space-l: 6rem;
+}
+
+/* Light theme: warm paper. Lime is unreadable on light backgrounds,
+   so the accent becomes a dark green (5.6:1 on --color-bg). */
+:root[data-theme='light'] {
+  color-scheme: light;
+  --color-bg: #f4f2ec;
+  --color-surface: #eae7df;
+  --color-text: #141414;
+  --color-muted: #666666;
+  --color-accent: #3f6b0a;
 }

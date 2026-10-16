@@ -1,6 +1,7 @@
 import { navLinks } from '../data/navigation'
 import { profile } from '../data/profile'
 import styles from './Nav.module.css'
+import { ThemeToggle } from './ThemeToggle'
 
 export function Nav() {
   return (
@@ -20,6 +21,7 @@ export function Nav() {
           ))}
         </ul>
       </nav>
+      <ThemeToggle />
     </header>
   )
 }

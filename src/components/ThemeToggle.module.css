@@ -1,0 +1,24 @@
+.toggle {
+  display: flex;
+  padding: 0.25rem;
+  color: var(--color-text);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.toggle:hover,
+.toggle:focus-visible {
+  color: var(--color-accent);
+}
+
+.icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
