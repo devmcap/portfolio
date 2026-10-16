@@ -14,11 +14,7 @@
 }
 
 .role {
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  color: var(--color-accent);
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
+  composes: label from '../styles/typography.module.css';
   margin-bottom: var(--space-s);
 }
 

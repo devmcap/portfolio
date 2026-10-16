@@ -78,6 +78,5 @@ Static site. Hosting to be decided.
 ## Leftovers
 
 - Mobile Nav: handle + 3 links + 2 toggles at 375px — design it together with ES/EN.
-- The mono section `.label` style is duplicated in 3 CSS modules.
 - Maybe reword "developed alongside AI agents" (the site shouldn't look AI-made).
 - Add a `.gitattributes` to silence the LF/CRLF warnings.
