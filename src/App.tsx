@@ -1,5 +1,6 @@
 import { DustBackground } from './components/DustBackground'
 import { Footer } from './components/Footer'
+import { Meteors } from './components/Meteors'
 import { Nav } from './components/Nav'
 import { SmoothScroll } from './components/SmoothScroll'
 import { LanguageProvider } from './i18n/LanguageProvider'
@@ -14,6 +15,7 @@ export default function App() {
     <LanguageProvider>
       <SmoothScroll>
         <DustBackground />
+        <Meteors />
         <Nav />
         <main>
           <Hero />

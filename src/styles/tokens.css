@@ -18,6 +18,10 @@
   --color-cloud-flash-alt: #e4ffb0;
   /* Background dust: muted olive, like the cloud's gas settling. */
   --color-dust: #8a9a52;
+  /* Meteors: a yellow-hot head and a red-orange trail, so they don't
+     read as dust or shooting stars. */
+  --color-meteor-head: #ffe066;
+  --color-meteor-tail: #ff5a1f;
 
   /* Typography */
   --font-body: 'Inter', system-ui, sans-serif;
@@ -48,4 +52,7 @@
   --color-cloud-flash-alt: #6b8fc7;
   /* Background dust: desert sand. */
   --color-dust: #b08a52;
+  /* Meteors: deeper tones, a pale yellow would vanish on paper. */
+  --color-meteor-head: #e8a600;
+  --color-meteor-tail: #c2410c;
 }
