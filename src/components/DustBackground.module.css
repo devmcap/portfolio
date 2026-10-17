@@ -1,0 +1,10 @@
+/* Behind everything: the body's background is painted by the page itself,
+   so z-index -1 still shows above it. */
+.dust {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
