@@ -100,4 +100,4 @@ GitHub Pages (via Actions; needs Vite's `base` unless on a custom domain) or Clo
 
 ## Leftovers
 
-- Maybe reword "developed alongside AI agents" (the site shouldn't look AI-made).
+Nothing pending.

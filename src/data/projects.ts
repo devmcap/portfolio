@@ -14,8 +14,8 @@ export const projects: readonly Project[] = [
     id: 'devmcap',
     title: 'devmcap',
     description: {
-      en: 'This portfolio. A scroll-driven site built from scratch and developed alongside AI agents.',
-      es: 'Este portfolio. Una web guiada por el scroll, hecha desde cero y desarrollada junto a agentes de IA.',
+      en: 'This portfolio. A scroll-driven site built from scratch.',
+      es: 'Este portfolio. Una web guiada por el scroll, hecha desde cero.',
     },
     year: 2026,
     stack: ['React', 'TypeScript', 'GSAP', 'Lenis', 'Vite'],
