@@ -100,5 +100,4 @@ GitHub Pages (via Actions; needs Vite's `base` unless on a custom domain) or Clo
 
 ## Leftovers
 
-- Check the Nav at 375px with both toggles (estimated ~360px, tight).
 - Maybe reword "developed alongside AI agents" (the site shouldn't look AI-made).

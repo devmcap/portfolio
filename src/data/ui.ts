@@ -13,6 +13,8 @@ export const ui = {
 
   // Screen-reader only
   mainNav: { en: 'Main', es: 'Principal' },
+  openMenu: { en: 'Open menu', es: 'Abrir menú' },
+  closeMenu: { en: 'Close menu', es: 'Cerrar menú' },
   switchToLight: { en: 'Switch to light theme', es: 'Cambiar a tema claro' },
   switchToDark: { en: 'Switch to dark theme', es: 'Cambiar a tema oscuro' },
   nextBuild: { en: 'Next project, in progress', es: 'Próximo proyecto, en progreso' },

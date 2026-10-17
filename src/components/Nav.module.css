@@ -51,22 +51,98 @@
   margin-left: var(--space-s);
 }
 
+/* Only shown on phones. Same look as the theme toggle next to it. */
+.menuButton {
+  display: none;
+  padding: 0.25rem;
+  color: var(--color-text);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.menuButton:hover,
+.menuButton:focus-visible {
+  color: var(--color-accent);
+}
+
+.menuIcon {
+  width: 1.1rem;
+  height: 1.1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+}
+
+/* Phones: the links move into a dropdown panel under the bar. */
 @media (max-width: 600px) {
+  /* A bit more room than --space-s, so the icons don't hug the screen edge. */
   .nav {
-    gap: var(--space-s);
-    padding: var(--space-s);
+    padding: 1.25rem 1.25rem 1rem;
+  }
+
+  .controls {
+    margin-left: 0;
+  }
+
+  .menuButton {
+    display: flex;
+  }
+
+  /* Hidden (not just transparent) while closed, so it can't be focused or
+     read out. No backdrop-filter: nested inside the bar's own blur it wouldn't
+     blur the page. A surface colour and a shadow set it apart from the page. */
+  .menu {
+    position: absolute;
+    inset: 100% 0 auto;
+    padding: 0.25rem 1.25rem;
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-line);
+    box-shadow: 0 1rem 2rem color-mix(in srgb, black 35%, transparent);
+    visibility: hidden;
+    opacity: 0;
+    translate: 0 -0.5rem;
+    transition:
+      opacity 0.2s,
+      translate 0.2s,
+      visibility 0s 0.2s;
+  }
+
+  .nav[data-open] .menu {
+    visibility: visible;
+    opacity: 1;
+    translate: 0 0;
+    transition:
+      opacity 0.2s,
+      translate 0.2s;
   }
 
   .links {
-    gap: var(--space-s);
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* Big enough to tap comfortably, with a thin line between links. */
+  .link {
+    display: block;
+    padding: 0.9rem 0;
+    font-size: 1rem;
+  }
+
+  .links li + li {
+    border-top: 1px solid var(--color-line);
   }
 
   .index {
-    display: none;
+    color: var(--color-accent);
   }
+}
 
-  /* No extra space on phones: the nav is already ~360px wide at 375px. */
-  .controls {
-    margin-left: 0;
+@media (prefers-reduced-motion: reduce) {
+  .menu,
+  .nav[data-open] .menu {
+    transition: none;
   }
 }

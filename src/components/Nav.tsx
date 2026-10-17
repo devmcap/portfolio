@@ -1,3 +1,4 @@
+import { useEffect, useId, useState } from 'react'
 import { navLinks } from '../data/navigation'
 import { profile } from '../data/profile'
 import { ui } from '../data/ui'
@@ -6,19 +7,35 @@ import { LanguageToggle } from './LanguageToggle'
 import styles from './Nav.module.css'
 import { ThemeToggle } from './ThemeToggle'
 
+/**
+ * Fixed top bar. On wide screens the links sit in a row; on phones the same
+ * list becomes a dropdown panel opened by the menu button (CSS does the switch).
+ */
 export function Nav() {
   const { lang } = useLanguage()
+  const [open, setOpen] = useState(false)
+  const menuId = useId()
+
+  // Escape closes the menu, like any other popup.
+  useEffect(() => {
+    if (!open) return
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setOpen(false)
+    }
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [open])
 
   return (
-    <header className={styles.nav}>
+    <header className={styles.nav} data-open={open || undefined}>
       <a href="#top" className={styles.brand}>
         {profile.handle}
       </a>
-      <nav aria-label={ui.mainNav[lang]}>
+      <nav id={menuId} className={styles.menu} aria-label={ui.mainNav[lang]}>
         <ul className={styles.links}>
           {navLinks.map((link, i) => (
             <li key={link.id}>
-              <a href={`#${link.id}`} className={styles.link}>
+              <a href={`#${link.id}`} className={styles.link} onClick={() => setOpen(false)}>
                 <span className={styles.index}>{String(i + 1).padStart(2, '0')}</span>
                 {link.label}
               </a>
@@ -29,7 +46,33 @@ export function Nav() {
       <div className={styles.controls}>
         <LanguageToggle />
         <ThemeToggle />
+        <button
+          type="button"
+          className={styles.menuButton}
+          onClick={() => setOpen(!open)}
+          aria-expanded={open}
+          aria-controls={menuId}
+          aria-label={open ? ui.closeMenu[lang] : ui.openMenu[lang]}
+        >
+          {open ? <CloseIcon /> : <MenuIcon />}
+        </button>
       </div>
     </header>
+  )
+}
+
+function MenuIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className={styles.menuIcon} aria-hidden="true">
+      <path d="M4 7h16M4 12h16M4 17h16" />
+    </svg>
+  )
+}
+
+function CloseIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className={styles.menuIcon} aria-hidden="true">
+      <path d="M6 6l12 12M18 6L6 18" />
+    </svg>
   )
 }
