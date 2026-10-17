@@ -1,0 +1,21 @@
+/* Liquid progress bar. Heights come from liquidBar.ts. */
+.bar {
+  position: relative;
+  flex: 1;
+}
+
+.track {
+  position: absolute;
+  inset: 0;
+  border-radius: 6px;
+  background: var(--color-line);
+}
+
+/* Canvas the water is drawn on, laid over the track. */
+.layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+}

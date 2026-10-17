@@ -1,5 +1,6 @@
 import { ui } from '../data/ui'
 import { useLanguage } from '../i18n/useLanguage'
+import { LiquidBarCanvas } from './LiquidBarCanvas'
 import styles from './NextBuild.module.css'
 
 /** Terminal-style window marking the slot for the next project. The visible text stays in English. */
@@ -24,14 +25,7 @@ export function NextBuild() {
           build next-project
         </p>
         <div className={styles.progressRow}>
-          <div
-            className={styles.track}
-            role="progressbar"
-            aria-label={ui.nextBuildProgress[lang]}
-            aria-valuetext={ui.inProgress[lang]}
-          >
-            <div className={styles.fill} />
-          </div>
+          <LiquidBarCanvas label={ui.nextBuildProgress[lang]} valueText={ui.inProgress[lang]} />
           <span className={styles.muted}>building…</span>
         </div>
         <p className={styles.muted}>
