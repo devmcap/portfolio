@@ -1,0 +1,9 @@
+# Text files use LF everywhere, in the repo and in the working copy,
+# whatever core.autocrlf says on this machine (Git for Windows sets it to true).
+* text=auto eol=lf
+
+# Never touch binary assets.
+*.png binary
+*.jpg binary
+*.ico binary
+*.woff2 binary
