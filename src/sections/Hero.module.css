@@ -47,6 +47,7 @@
   bottom: var(--space-m);
   left: 50%;
   translate: -50% 0;
+  z-index: 2; /* stays above the cloud */
   font-family: var(--font-mono);
   font-size: 0.75rem;
   color: var(--color-muted);

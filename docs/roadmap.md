@@ -9,8 +9,8 @@ What's done, what's next, and how each piece gets built.
 | — | Sections: Hero, About, Projects, Contact + Footer | ✅ Done |
 | — | Lenis off under `prefers-reduced-motion` | ✅ Done (`f9a7ec7`) |
 | 1 | Light/dark theme | ✅ Done (`7fe5556`, wave `1c2d26a`) |
-| 2 | ES/EN language toggle | ✅ Done, pending visual review |
-| 3 | Fog intro over the Hero | ⏭️ Next |
+| 2 | ES/EN language toggle | ✅ Done (`fa366da`) |
+| 3 | Cloud intro over the Hero (3D) | 🚧 In progress — pending mobile check and pausing the render off screen |
 | 4 | Light 3D element (React Three Fiber) | Planned |
 | 5 | Deploy | Planned |
 
@@ -51,20 +51,41 @@ built twice.
   `src/data/ui.ts`. A test walks all content to catch missing or empty translations.
 - `LanguageProvider` + `useLanguage()` (React context) also keep `<html lang>` in sync.
 
-## 3. Fog intro over the Hero
+## 3. Cloud intro over the Hero (3D)
 
-On load, a dark cloud covers the name; scrolling clears it and reveals the Hero.
+On load, a cloud covers the Hero content; scrolling splits it and reveals the Hero.
 
-Open questions:
-- Name fully hidden, or faintly visible through the fog?
-- Does the fog drift while idle, or stay static until scroll?
-- How does it clear: thins out evenly, opens from the centre, lifts, splits sideways?
-- Are the Nav and the "scroll ↓" hint visible above the fog from the start?
-- What does the fog look like in the light theme?
+Decisions:
+- **It must be a real 3D cloud** with volume and its own cloud shape, not a flat 2D
+  shape and not a full-screen haze.
+- Covers the role, the name and the tagline. Mostly opaque, with a little transparency
+  so you can tell something is behind it.
+- Drifts on its own while idle.
+- Clears by **splitting sideways**, as if the name were coming out of it.
+- Nav and the "scroll ↓" hint stay visible above it from the start.
+- Colour: green gas in the dark theme, black in the light theme. It reads from CSS
+  variables so it follows the theme.
+- Under `prefers-reduced-motion`: no cloud.
 
-Technical direction: CSS gradients + SVG `feTurbulence` noise, scrubbed with GSAP
-(lightest option). Colour comes from CSS variables, so it follows the theme. Under
-`prefers-reduced-motion`: no fog, or an instant reveal.
+Tried and discarded (not committed):
+- **Full-screen fog with CSS masks + SVG `feTurbulence` noise**: covered the whole
+  screen instead of being a cloud, and slowed down the scroll and the whole page
+  (masks get recomposited on every frame of the drift).
+- **Flat SVG cloud** (overlapping circles, concentric tonal bands, a wavy seam
+  to split it): fast, but it's a 2D shape. Rejected: it must be 3D.
+
+Chosen approach (in progress): drei `<Clouds>` with the *Puffycloud* recipe, lazy-loaded
+so three.js stays out of the main bundle. Several puffs that shiver and crash into each
+other, with lightning from `maath`'s `FlashGen`. The name is hidden on load. Scrolling
+grows an invisible ball at the name that pushes the puffs off screen: the cloud breaks,
+the name comes out, it holds, then the Hero leaves as before. All of it follows the
+scrollbar (scrub). Only scroll moves it, not the mouse. Tried and discarded: firing the
+break as a timed animation after a small scroll (didn't feel right). It probably also covers feature 4 (the light 3D element).
+
+**Physics decision:** we start with our own small physics (`src/animations/cloudPhysics.ts`:
+springs + collisions, no dependency, tested). **If the result doesn't convince us, we
+switch to Rapier** (`@react-three/rapier`, like the original Puffycloud): more faithful,
+but about +600 KB gzip of WebAssembly and more CPU on mobile.
 
 ## 4. Light 3D element
 

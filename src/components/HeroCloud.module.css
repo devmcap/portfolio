@@ -1,0 +1,14 @@
+.cloud {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  animation: appear 0.8s ease-out;
+}
+
+/* three.js arrives in its own chunk, so ease the cloud in instead of popping. */
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+}

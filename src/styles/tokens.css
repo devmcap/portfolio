@@ -8,6 +8,14 @@
   --color-muted: #888888;
   --color-accent: #c8fa5f;
   --color-line: color-mix(in srgb, var(--color-text) 15%, transparent);
+  /* Hero 3D cloud: green gas (lighting adds the shading). Three tones make
+     a top-to-bottom gradient: light on top, shadow underneath. */
+  --color-cloud-light: #6f9e2c;
+  --color-cloud: #4f7d1c;
+  --color-cloud-shadow: #2f5212;
+  /* Each flash picks one of the two at random. */
+  --color-cloud-flash: #e4ffb0;
+  --color-cloud-flash-alt: #e4ffb0;
 
   /* Typography */
   --font-body: 'Inter', system-ui, sans-serif;
@@ -28,4 +36,12 @@
   --color-text: #141414;
   --color-muted: #666666;
   --color-accent: #b0410f;
+  /* Hero 3D cloud: grey storm cloud on paper, with cold blue lightning.
+     three.js lighting darkens it a lot (it renders as a mid grey), so the
+     value looks lighter here than on screen. Darker hides the puffs' shape. */
+  --color-cloud-light: #a9a9b0;
+  --color-cloud: #8a8a92;
+  --color-cloud-shadow: #5f5f69;
+  --color-cloud-flash: #1e3a6e;
+  --color-cloud-flash-alt: #6b8fc7;
 }
