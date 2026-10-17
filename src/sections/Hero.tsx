@@ -1,5 +1,6 @@
 import { lazy, Suspense, useRef, useState } from 'react'
 import { gsap, useGSAP } from '../animations/gsap'
+import { HERO_SCROLL_ID, NAME_LABEL } from '../animations/heroScroll'
 import type { CloudBreak } from '../components/HeroCloud'
 import { profile } from '../data/profile'
 import { useLanguage } from '../i18n/useLanguage'
@@ -32,6 +33,7 @@ export function Hero() {
       const timeline = gsap.timeline({
         defaults: { ease: 'none' },
         scrollTrigger: {
+          id: HERO_SCROLL_ID,
           trigger: root.current,
           start: 'top top',
           end: '+=200%',
@@ -43,11 +45,15 @@ export function Hero() {
       // The name grows out of the cloud (it is hidden behind it on load).
       timeline
         .to(cloudBreak.current, { progress: 1, duration: 1 }, 0)
+        // The hint has done its job once you scroll: it fades straight away.
+        .to('[data-hero-hint]', { opacity: 0, duration: 0.2 }, 0)
         .from(
           '[data-hero-content]',
           { opacity: 0, scale: 0.92, transformOrigin: 'left center', duration: 0.7 },
           0.3,
         )
+        // Halfway through the pause below: where the logo link scrolls to.
+        .addLabel(NAME_LABEL, '+=0.25')
         // Pause with the name in full view, then leave as before.
         .to('[data-hero-content]', {
           scale: 0.85,
@@ -76,7 +82,7 @@ export function Hero() {
           <HeroCloud cloudBreak={cloudBreak} />
         </Suspense>
       )}
-      <p className={styles.hint} aria-hidden="true">
+      <p data-hero-hint className={styles.hint} aria-hidden="true">
         scroll ↓
       </p>
     </section>

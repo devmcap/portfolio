@@ -1,4 +1,6 @@
-import { useEffect, useId, useState } from 'react'
+import { useLenis } from 'lenis/react'
+import { useEffect, useId, useState, type MouseEvent } from 'react'
+import { nameScrollPosition } from '../animations/heroScroll'
 import { navLinks } from '../data/navigation'
 import { profile } from '../data/profile'
 import { ui } from '../data/ui'
@@ -15,6 +17,8 @@ export function Nav() {
   const { lang } = useLanguage()
   const [open, setOpen] = useState(false)
   const menuId = useId()
+  // undefined under reduced motion: there is no Lenis then.
+  const lenis = useLenis()
 
   // Escape closes the menu, like any other popup.
   useEffect(() => {
@@ -26,9 +30,20 @@ export function Nav() {
     return () => window.removeEventListener('keydown', onKeyDown)
   }, [open])
 
+  // The logo goes to the name. The very top (#top) is where the cloud still
+  // hides it, so with the Hero animation on, scroll to where it's in full view.
+  const goToName = (event: MouseEvent) => {
+    const position = nameScrollPosition()
+    if (position === undefined || !lenis) return // plain #top link
+    event.preventDefault()
+    // Lenis also handles # links, on window: keep it from scrolling to #top too.
+    event.stopPropagation()
+    lenis.scrollTo(position)
+  }
+
   return (
     <header className={styles.nav} data-open={open || undefined}>
-      <a href="#top" className={styles.brand}>
+      <a href="#top" className={styles.brand} onClick={goToName}>
         {profile.handle}
       </a>
       <nav id={menuId} className={styles.menu} aria-label={ui.mainNav[lang]}>
