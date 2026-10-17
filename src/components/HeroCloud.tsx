@@ -4,6 +4,7 @@ import { random } from 'maath'
 import { Suspense, useEffect, useMemo, useRef, useState, type RefObject } from 'react'
 import { MeshLambertMaterial, type Group, type PointLight } from 'three'
 import { createPuffs, pusherRadiusToClear, stepPuffs, type Puff as PuffBody } from '../animations/cloudPhysics'
+import { useInView } from '../animations/useInView'
 import styles from './HeroCloud.module.css'
 
 /** Shared with the Hero: GSAP animates `progress` from 0 (whole) to 1 (broken). */
@@ -83,20 +84,6 @@ function useCloudColors(): CloudColors {
   }, [])
 
   return colors
-}
-
-/** Whether any part of the element is on screen, via the browser's IntersectionObserver. */
-function useInView(element: RefObject<HTMLElement | null>): boolean {
-  const [inView, setInView] = useState(true)
-
-  useEffect(() => {
-    if (!element.current) return
-    const observer = new IntersectionObserver(([entry]) => setInView(entry.isIntersecting))
-    observer.observe(element.current)
-    return () => observer.disconnect()
-  }, [element])
-
-  return inView
 }
 
 /**
