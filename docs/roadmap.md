@@ -10,7 +10,7 @@ What's done, what's next, and how each piece gets built.
 | — | Lenis off under `prefers-reduced-motion` | ✅ Done (`f9a7ec7`) |
 | 1 | Light/dark theme | ✅ Done (`7fe5556`, wave `1c2d26a`) |
 | 2 | ES/EN language toggle | ✅ Done (`fa366da`) |
-| 3 | Cloud intro over the Hero (3D) | 🚧 In progress — pending mobile check and pausing the render off screen |
+| 3 | Cloud intro over the Hero (3D) | ✅ Done |
 | 4 | Light 3D element (React Three Fiber) | Planned |
 | 5 | Deploy | Planned |
 

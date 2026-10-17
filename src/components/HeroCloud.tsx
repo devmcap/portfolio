@@ -85,6 +85,20 @@ function useCloudColors(): CloudColors {
   return colors
 }
 
+/** Whether any part of the element is on screen, via the browser's IntersectionObserver. */
+function useInView(element: RefObject<HTMLElement | null>): boolean {
+  const [inView, setInView] = useState(true)
+
+  useEffect(() => {
+    if (!element.current) return
+    const observer = new IntersectionObserver(([entry]) => setInView(entry.isIntersecting))
+    observer.observe(element.current)
+    return () => observer.disconnect()
+  }, [element])
+
+  return inView
+}
+
 /**
  * One puff: a see-through base plus a denser top, the "puffy cloud" recipe
  * from the drei examples. Fixed seeds keep the shape identical on every visit.
@@ -231,9 +245,18 @@ function Scene({ cloudBreak }: { cloudBreak: RefObject<CloudBreak> }) {
  * main bundle. Purely decorative, hence aria-hidden.
  */
 export default function HeroCloud({ cloudBreak }: { cloudBreak: RefObject<CloudBreak> }) {
+  const wrapper = useRef<HTMLDivElement>(null)
+  const inView = useInView(wrapper)
+
   return (
-    <div className={styles.cloud} aria-hidden="true">
-      <Canvas dpr={[1, 1.5]} gl={{ antialias: false }} camera={{ position: [0, 0, 16], fov: 35 }}>
+    <div ref={wrapper} className={styles.cloud} aria-hidden="true">
+      {/* Off screen nothing runs: no physics, no lightning, no GPU work. */}
+      <Canvas
+        frameloop={inView ? 'always' : 'never'}
+        dpr={[1, 1.5]}
+        gl={{ antialias: false }}
+        camera={{ position: [0, 0, 16], fov: 35 }}
+      >
         <Scene cloudBreak={cloudBreak} />
       </Canvas>
     </div>
