@@ -131,7 +131,8 @@ function Storm({ cloudBreak, colors }: { cloudBreak: RefObject<CloudBreak>; colo
   // spontaneous burst every few seconds, so the storm never fully sleeps.
   const [flash] = useState(() => new random.FlashGen({ count: 15, minDuration: 40, maxDuration: 200 , minInterval: 1500, maxInterval: 3500 }))
   const viewport = useThree((state) => state.viewport)
-  const scale = Math.min(1, Math.max(0.45, viewport.width / DESIGN_WIDTH))
+  // No lower limit: on a phone the whole cloud must still fit the width.
+  const scale = Math.min(1, viewport.width / DESIGN_WIDTH)
 
   useFrame((state, delta) => {
     // A long frame (e.g. after switching tabs) would make the springs explode.
