@@ -11,8 +11,8 @@ What's done, what's next, and how each piece gets built.
 | 1 | Light/dark theme | ✅ Done (`7fe5556`, wave `1c2d26a`) |
 | 2 | ES/EN language toggle | ✅ Done (`fa366da`) |
 | 3 | Cloud intro over the Hero (3D) | ✅ Done |
-| 4 | Light 3D element (React Three Fiber) | Planned |
-| 5 | Deploy | Planned |
+| 4 | Light 3D element (React Three Fiber) | ✅ Covered by the Hero cloud, for now |
+| 5 | Deploy | ⏸️ On hold |
 
 **Why this order:** the fog's colour depends on the theme, and i18n restructures the
 `src/data/` files the Hero reads. Building in dependency order means nothing gets
@@ -89,11 +89,14 @@ but about +600 KB gzip of WebAssembly and more CPU on mobile.
 
 ## 4. Light 3D element
 
-React Three Fiber, used sparingly and kept light on mobile. Details to be decided.
+React Three Fiber, used sparingly and kept light on mobile. Covered for now by the Hero
+cloud (feature 3): it already is the site's 3D element. A second one would add weight and
+compete with it; revisit only if a section clearly asks for it.
 
 ## 5. Deploy
 
-Static site. Hosting to be decided.
+Static site. On hold: not deploying anywhere for now. Options when it's time: Vercel,
+GitHub Pages (via Actions; needs Vite's `base` unless on a custom domain) or Cloudflare Pages.
 
 ## Leftovers
 
