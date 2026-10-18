@@ -12,6 +12,7 @@ export const contactHeadline: Localized<string> = {
 
 export const contactLinks: readonly ContactLink[] = [
   { label: 'GitHub', href: 'https://github.com/manmolcptn' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/mmlcap' },
 ]
 
 /** "https://www.github.com/user/" → "github.com/user" */
