@@ -12,7 +12,7 @@ What's done, what's next, and how each piece gets built.
 | 2 | ES/EN language toggle | ✅ Done (`fa366da`) |
 | 3 | Cloud intro over the Hero (3D) | ✅ Done |
 | 4 | Light 3D element (React Three Fiber) | ✅ Covered by the Hero cloud, for now |
-| 5 | Deploy | ⏸️ On hold |
+| 5 | Deploy (Vercel) | ✅ Done — [devmcap.vercel.app](https://devmcap.vercel.app) |
 | 6 | Liquid progress bar (next build) | ✅ Done (`9546b38`) |
 | 7 | "Other world" background: dust + meteors | ✅ Done (`336c094`, `2676f13`) |
 | 8 | Orbiting, spinning Hero cloud | ✅ Done (`bfd7d37`) |
@@ -67,7 +67,7 @@ Decisions:
 - Drifts on its own while idle.
 - Clears by **splitting sideways**, as if the name were coming out of it.
 - Nav and the "scroll ↓" hint stay visible above it from the start.
-- Colour: green gas in the dark theme, a grey storm cloud with blue lightning in the light theme. It reads from CSS
+- Colour: green gas in the dark theme, a terracotta storm cloud (matching the accent) with blue lightning in the light theme. It reads from CSS
   variables so it follows the theme.
 - Under `prefers-reduced-motion`: no cloud.
 
@@ -97,10 +97,18 @@ React Three Fiber, used sparingly and kept light on mobile. Covered for now by t
 cloud (feature 3): it already is the site's 3D element. A second one would add weight and
 compete with it; revisit only if a section clearly asks for it.
 
-## 5. Deploy
+## 5. Deploy ✅
 
-Static site. On hold: not deploying anywhere for now. Options when it's time: Vercel,
-GitHub Pages (via Actions; needs Vite's `base` unless on a custom domain) or Cloudflare Pages.
+Live at [devmcap.vercel.app](https://devmcap.vercel.app), on Vercel's free subdomain for now.
+- Vercel is connected to the GitHub repo: every push to `main` deploys production, and
+  pushes to other branches get their own preview URL.
+- No `vercel.json`: Vercel detects the Vite preset (`npm run build`, output `dist`). The
+  site is one page with anchors, so no rewrites are needed, and it is served from `/`, so
+  Vite's `base` stays at its default.
+- Custom domain: can be added later in Vercel (Settings → Domains) without redeploying.
+
+Discarded: the Vercel CLI (manual deploys, not tied to git), GitHub Pages (needs Vite's
+`base` without a custom domain) and Cloudflare Pages (no advantage for this site).
 
 ## 6. Liquid progress bar ✅
 

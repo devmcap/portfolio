@@ -2,6 +2,8 @@
 
 Personal portfolio of Miguel Molina, built as a scroll-driven narrative.
 
+**Live:** [devmcap.vercel.app](https://devmcap.vercel.app)
+
 ## Stack
 
 - [Vite](https://vite.dev) + React 19 + TypeScript (strict)
@@ -10,7 +12,7 @@ Personal portfolio of Miguel Molina, built as a scroll-driven narrative.
 - CSS Modules, with design tokens as CSS variables
 - [Vitest](https://vitest.dev) for tests
 
-Static site, no backend.
+Static site, no backend. Deployed on [Vercel](https://vercel.com): every push to `main` goes to production.
 
 ## Getting started
 
