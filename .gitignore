@@ -25,3 +25,7 @@ dist-ssr
 
 # Python (antiguo entorno de PyCharm)
 .venv
+
+# Claude Code: personal settings and third-party skills
+.claude/settings.local.json
+.claude/skills/
