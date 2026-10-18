@@ -42,12 +42,12 @@
   --color-text: #141414;
   --color-muted: #666666;
   --color-accent: #b0410f;
-  /* Hero 3D cloud: grey storm cloud on paper, with cold blue lightning.
-     three.js lighting darkens it a lot (it renders as a mid grey), so the
-     value looks lighter here than on screen. Darker hides the puffs' shape. */
-  --color-cloud-light: #a9a9b0;
-  --color-cloud: #8a8a92;
-  --color-cloud-shadow: #5f5f69;
+  /* Hero 3D cloud: terracotta storm cloud on paper (matches the accent),
+     with cold blue lightning. three.js lighting darkens it a lot, so the
+     values look lighter here than on screen. Darker hides the puffs' shape. */
+  --color-cloud-light: #e3a07a;
+  --color-cloud: #cc7a52;
+  --color-cloud-shadow: #9e5232;
   --color-cloud-flash: #1e3a6e;
   --color-cloud-flash-alt: #6b8fc7;
   /* Background dust: desert sand. */
