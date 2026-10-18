@@ -19,6 +19,6 @@ export const projects: readonly Project[] = [
     },
     year: 2026,
     stack: ['React', 'TypeScript', 'GSAP', 'Lenis', 'Vite'],
-    repo: 'https://github.com/manmolcptn/devmcap',
+    repo: 'https://github.com/devmcap/portfolio',
   },
 ]
